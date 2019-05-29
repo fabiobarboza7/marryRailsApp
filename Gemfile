@@ -49,6 +49,8 @@ group :development, :test do
 end
 
 group :development do
+  # To populate my db for testing
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
