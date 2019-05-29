@@ -26,6 +26,6 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for(resource)
-    new_profiles_path
+    profiles_path
   end
 end

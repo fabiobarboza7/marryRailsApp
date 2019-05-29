@@ -15,7 +15,8 @@
         <div class="col-sm-12 bg-warning">
           <%= render 'shared/flashes' %>
           <% if user_signed_in? %>
-            <%= link_to "logout", user_registration_path, method: :delete %>
+            <%= link_to "logout", destroy_user_session_path, method: :delete %>
+            <%= link_to "delete account", user_registration_path, method: :delete %>
           <% end %>
           <%= yield %>
         </div>
