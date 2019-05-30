@@ -4,7 +4,7 @@ Religion.create(title: "Adv");
 Religion.create(title: "CcC");
 
 id_user = 0
-20.times do 
+100.times do 
   User.create(
     email: Faker::Internet.unique.free_email,
     password: 123123

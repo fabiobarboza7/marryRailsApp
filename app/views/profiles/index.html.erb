@@ -1,18 +1,25 @@
+<%= simple_form_for @post do |f| %>
+  <%= f.input :content %>
+  <%= f.submit "Criar Poste", class: "btn btn-success" %>
+<% end %>
+
+
 <ul>
-
-
   <!-- TESTING LIKES POLYMORPHIC WOKRINGG -->
   <% @profiles.each do |profile|%>
   	<%= link_to "like", profile_likes_path(profile), method: :post %>
     <li>
-      <% if profile.posts.any? %>
-        POST: <%= profile.posts.first.content %>
-        <%= link_to "like post", post_likes_path(profile.posts.first.id), method: :post %>
-        <% profile.posts.first.likes.each do |post| %>
-          <code>[<%= post.profile.first_name %>]</code>
-        <% end %>
-        <%= profile.posts.first.likes.count %>
-      <% end %>
+
+          <% if profile.posts.any? %>
+            POST: <%= profile.posts.last.content %>
+            <%= link_to "like post", post_likes_path(profile.posts.last.id), method: :post %>
+            <% profile.posts.last.likes.each do |post| %>
+              <code>[<%= post.profile.last_name %>]</code>
+            <% end %>
+            <%= profile.posts.last.likes.count %>
+          <% end %>
+
+
     </li>
   	<li><%= profile.likes.count %></li>
     <li><%= profile.first_name %> <%= profile.last_name%></li>
