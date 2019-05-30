@@ -5,14 +5,25 @@ class ProfilesController < ApplicationController
   end
 
   def new
-    @profile = Profile.new
-    @profile.build_address
+    if current_user.profile.nil?
+      @profile = Profile.new
+      @profile.build_address
+    else
+      flash[:alert] = "You already create you profile"
+      redirect_to profiles_path
+    end
+
   end
 
   def create
     @profile = Profile.new(profile_params)
     @profile.user = current_user
-  	@profile.save ? flash[:notice] = "Success created" : flash[:alert] = "Try again"
+  	if @profile.save 
+      flash[:notice] = "Success created"
+      redirect_to profiles_path
+    else
+      flash[:alert] = "Try again"
+    end
   end
 
   private
