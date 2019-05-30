@@ -1,0 +1,8 @@
+<nav class="navbar navbar-light bg-light justify-content-between mb-5">
+  <a class="navbar-brand">Navbar</a>
+  <% if user_signed_in? %>
+  <% else %>
+  	<%= render "pages/login" %>
+		<%= link_to "Sign up", new_user_registration_path %>
+  <% end %>
+</nav>

@@ -10,10 +10,11 @@
   </head>
 
   <body>
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/flashes' %>
     <div class="container">
-      <div class="row mt-5">
-        <div class="col-sm-12 bg-warning">
-          <%= render 'shared/flashes' %>
+      <div class="row">
+        <div class="col-sm-12">
           <% if user_signed_in? %>
             <%= link_to "logout", destroy_user_session_path, method: :delete %>
             <%= link_to "delete account", user_registration_path, method: :delete %>
