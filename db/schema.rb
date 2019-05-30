@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_30_022458) do
+ActiveRecord::Schema.define(version: 2019_05_30_151359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,8 +56,18 @@ ActiveRecord::Schema.define(version: 2019_05_30_022458) do
     t.string "about_me"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "religion_id"
     t.index ["address_id"], name: "index_profiles_on_address_id"
+    t.index ["religion_id"], name: "index_profiles_on_religion_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "religions", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "profile_id"
+    t.index ["profile_id"], name: "index_religions_on_profile_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -81,5 +91,7 @@ ActiveRecord::Schema.define(version: 2019_05_30_022458) do
   add_foreign_key "likes", "profiles"
   add_foreign_key "posts", "profiles"
   add_foreign_key "profiles", "addresses"
+  add_foreign_key "profiles", "religions"
   add_foreign_key "profiles", "users"
+  add_foreign_key "religions", "profiles"
 end
