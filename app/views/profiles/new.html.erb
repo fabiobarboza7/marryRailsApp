@@ -5,14 +5,17 @@
 	<%= f.input :last_name %>
 	<%= f.input :gender, :collection => Profile::GENDER %>
 	<%= f.input :date_of_birth, start_year: Date.today.year - 110, end_year: Date.today.year - 18 %>
+  <%= f.association :religion %>		
 	<%= f.input :photo %>
 	<%= f.input :occupation %>
 	<%= f.input :about_me %>
-	<%= f.simple_fields_for :address do |p| %>
-    <%= p.input :city %>
-    <%= p.input :state %>
-    <%= p.input :zip_code %>
-    <%= p.input :country, :collection => Address::COUNTRY %>		
+	<%= f.simple_fields_for :address do |add| %>
+    <%= add.input :city %>
+    <%= add.input :state %>
+    <%= add.input :zip_code %>
+    <%= add.input :country, :collection => Address::COUNTRY %>		
 	<% end %>
+	
+	
 	<%= f.submit %>
 <% end %>

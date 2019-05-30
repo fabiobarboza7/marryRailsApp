@@ -7,7 +7,6 @@ class CreateProfiles < ActiveRecord::Migration[5.2]
       t.string :gender
       t.date :date_of_birth
       t.string :photo
-      t.references :address, foreign_key: true
       t.string :occupation
       t.string :about_me
 

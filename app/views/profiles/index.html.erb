@@ -16,6 +16,7 @@
     </li>
   	<li><%= profile.likes.count %></li>
     <li><%= profile.first_name %> <%= profile.last_name%></li>
+    <li><%= profile.religion.title if profile.religion %></li>
     <li><%= profile.gender%></li>
     <li><%= profile.date_of_birth%></li>
     <li><%= image_tag (profile.photo), class: 'avatar' %></li>

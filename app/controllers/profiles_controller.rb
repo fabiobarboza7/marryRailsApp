@@ -24,12 +24,16 @@ class ProfilesController < ApplicationController
     else
       flash[:alert] = "Try again"
     end
+
   end
 
   private
 
   def profile_params
-  	params.require(:profile).permit(:user_id, :first_name, :last_name, :gender, :date_of_birth, :photo, :occupation, :about_me, address_attributes: [ :city, :state, :zip_code, :country ])
+  	params.require(:profile).permit(
+      :user_id, :first_name, :last_name, :gender, :date_of_birth, 
+      :photo, :occupation, :about_me, :religion_id, address_attributes: [ :city, :state, :zip_code, :country ],
+      )
   end
   
 end

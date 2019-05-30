@@ -51,13 +51,11 @@ ActiveRecord::Schema.define(version: 2019_05_30_151359) do
     t.string "gender"
     t.date "date_of_birth"
     t.string "photo"
-    t.bigint "address_id"
     t.string "occupation"
     t.string "about_me"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "religion_id"
-    t.index ["address_id"], name: "index_profiles_on_address_id"
     t.index ["religion_id"], name: "index_profiles_on_religion_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
@@ -90,7 +88,6 @@ ActiveRecord::Schema.define(version: 2019_05_30_151359) do
   add_foreign_key "addresses", "profiles"
   add_foreign_key "likes", "profiles"
   add_foreign_key "posts", "profiles"
-  add_foreign_key "profiles", "addresses"
   add_foreign_key "profiles", "religions"
   add_foreign_key "profiles", "users"
   add_foreign_key "religions", "profiles"
