@@ -7,6 +7,8 @@ ruby '2.6.3'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
+# Geocoding
+gem 'geocoder'
 # Devise
 gem 'devise'
 # Simple_form
@@ -46,6 +48,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.5'
+  gem 'dotenv-rails'
 end
 
 group :development do

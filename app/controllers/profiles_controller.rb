@@ -3,6 +3,16 @@ class ProfilesController < ApplicationController
   def index
     @profiles = Profile.all
     @post = Post.new
+
+    # Address
+    @address = Address.where.not(latitude: nil, longitude: nil)
+
+    @markers = @address.map do |add|
+      {
+        lat: add.latitude,
+        lng: add.longitude
+      }
+    end
   end
 
   def new
