@@ -1,5 +1,3 @@
-import mapboxgl from 'mapbox-gl';
-
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
 
@@ -10,7 +8,6 @@ const initMapbox = () => {
       style: 'mapbox://styles/mapbox/streets-v10'
     });
   }
-  console.log(mapElement.dataset.mapboxApiKey)
 };
 
 export { initMapbox };

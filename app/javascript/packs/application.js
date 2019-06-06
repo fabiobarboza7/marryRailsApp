@@ -14,8 +14,19 @@
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
- 
-import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/mapbox';
+import 'mapbox-gl/dist/mapbox-gl.css';
+window.addEventListener('load', () => {
+	initMapbox();
+});
 
-initMapbox();
+
+// working
+// window.addEventListener('load', () => {
+// 	const mapElement = document.getElementById('map');
+// 	mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+// 	const map = new mapboxgl.Map({
+// 		container: 'map',
+// 		style: 'mapbox://styles/mapbox/streets-v11'
+// 	});
+// });
