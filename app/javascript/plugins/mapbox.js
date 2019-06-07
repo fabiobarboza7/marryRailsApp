@@ -19,6 +19,11 @@ const initMapbox = () => {
 		  defaultLanguage: 'pt'
 		}));
 
+		const nav = new mapboxgl.NavigationControl();
+		map.addControl(nav, 'top-left');
+
+		map.scrollZoom.disable();
+
     const markers = JSON.parse(mapElement.dataset.markers);
 	  markers.forEach((marker) => {
 	  	const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);

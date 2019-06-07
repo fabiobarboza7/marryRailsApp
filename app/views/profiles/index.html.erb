@@ -1,58 +1,42 @@
-
-<div id='map' style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-
-    >
-</div>
 <div class="row">
-  <div class="col-sm-8 offset-sm-2 mb-5">
-    <%= simple_form_for @post do |f| %>
-      <%= f.input :content %>
-      <%= f.submit "Criar Poste", class: "btn btn-success" %>
-    <% end %>
+  <div class="col-sm-12 p-0">
+    <div
+      id='map' 
+      style="width: 100%; height: 600px;" 
+      data-markers="<%= @markers.to_json %>" 
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    >
+    </div>
   </div>
-</div>
-<div class="row no-gutters">
-  <div class="col-sm-8 no-gutters bg-info">
-    <div class="row d-flex justify-content-between">
+
+<!-- Todo posts -->
+<!-- <div class="row">
+  <div class="col-sm-8 offset-sm-2 mb-5">
+    <%#= simple_form_for @post do |f| %>
+      <%#= f.input :content %>
+      <%#= f.submit "Criar Poste", class: "btn btn-success" %>
+    <%# end %>
+  </div>
+</div> -->
+<!-- end Todo posts -->
+
+  <div class="col-sm-12 bg-info mt-sm-5 mt-0">
+    <div class="row">
       <% @profiles.reverse.each do |profile|%>
-        <div class="col-sm-4 mb-2">
-          <div class="card-trip">
-            <%= image_tag (profile.photo) %>
-            <div class="card-trip-infos">
-              <div>
-                <h2><%= profile.first_name %> <%= profile.last_name%></h2>
-                <p><%= profile.about_me %></p>
-              </div>
-              <h2 class="card-trip-pricing">£99.99</h2>
-                <%= link_to profile_likes_path(profile), class: "card-trip-user avatar-bordered", method: :post do %>
-                  <%= profile.likes.count %>
-                <% end %>
-            </div>
+        <div class="col-sm-3 p-3">
+          <div class="bg-danger avatar-border">
+            <%= image_tag (profile.photo), class: 'mx-auto d-block' %>
+          </div>
+          <div class="bg-white p-3">
+            <i class="fas fa-heart"></i>
+            <h2><%= profile.first_name %> <%= profile.last_name%></h2>
+            <p><%= profile.about_me %></p>
+            <%= link_to profile_likes_path(profile), class: "card-info-user avatar-bordered", method: :post do %>
+              <%= profile.likes.count %>
+            <% end %>
           </div>
         </div>
       <% end %>
     </div>
   </div>
-  <div class="col-sm-4 no-gutters bg-success">
-    
-  </div>
 </div>
-<!-- <div class="row d-flex justify-content-between">
-  <%# @profiles.reverse.each do |profile|%>
-    <div class="col-sm-<%#= rand(3..4)%> mb-2">
-      <div class="card-trip">
-        <%#= image_tag (profile.photo) %>
-        <div class="card-trip-infos">
-          <div>
-            <h2><%#= profile.first_name %> <%#= profile.last_name%></h2>
-            <p><%#= profile.about_me %></p>
-          </div>
-          <h2 class="card-trip-pricing">£99.99</h2>
-            <%#= link_to profile_likes_path(profile), class: "card-trip-user avatar-bordered", method: :post do %>
-              <%#= profile.likes.count %>
-            <%# end %>
-        </div>
-      </div>
-    </div>
-  <%# end %>
-</div> -->

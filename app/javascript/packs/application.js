@@ -19,14 +19,3 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 window.addEventListener('load', () => {
 	initMapbox();
 });
-
-
-// working
-// window.addEventListener('load', () => {
-// 	const mapElement = document.getElementById('map');
-// 	mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-// 	const map = new mapboxgl.Map({
-// 		container: 'map',
-// 		style: 'mapbox://styles/mapbox/streets-v11'
-// 	});
-// });

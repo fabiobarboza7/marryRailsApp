@@ -15,11 +15,7 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-12 p-0">
-          <%= yield %>
-        </div>
-      </div>
+      <%= yield %>
     </div>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-language/v0.10.0/mapbox-gl-language.js'></script>
