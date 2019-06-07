@@ -11,7 +11,8 @@ class ProfilesController < ApplicationController
       {
         lat: add.latitude,
         lng: add.longitude,
-        infoWindow: render_to_string(partial: "user_address", locals: { address: add })
+        infoWindow: render_to_string(partial: "user_address", locals: { address: add }),
+        image_url: helpers.asset_url('https://superprix.vteximg.com.br/arquivos/ids/175177-600-600/Maca-Fuji--1-unidade-aprox.-200g-.png')
       }
     end
   end
