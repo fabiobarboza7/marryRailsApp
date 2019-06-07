@@ -10,7 +10,8 @@ class ProfilesController < ApplicationController
     @markers = @address.map do |add|
       {
         lat: add.latitude,
-        lng: add.longitude
+        lng: add.longitude,
+        infoWindow: render_to_string(partial: "user_address", locals: { address: add })
       }
     end
   end
