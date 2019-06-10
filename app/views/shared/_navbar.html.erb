@@ -1,5 +1,5 @@
 <nav class="navbar navbar-light bg-light justify-content-between">
-  <a class="navbar-brand">MarryApp</a>
+  <a class="navbar-brand"><span class="text-pink">MarryApp</span></a>
   <% if user_signed_in? %>
   	<%= link_to "logout", destroy_user_session_path, method: :delete %>
   <% else %>
