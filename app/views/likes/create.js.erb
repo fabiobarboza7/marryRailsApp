@@ -1,0 +1,10 @@
+function refreshForm(innerHTML) {
+  const newReviewForm = document.getElementById('render-profiles');
+  newReviewForm.innerHTML = innerHTML;
+}
+
+<% if @like.errors.any? %>
+  alert("error");
+<% else %>
+  refreshForm('<%= j render "profiles/form" %>');
+<% end %>

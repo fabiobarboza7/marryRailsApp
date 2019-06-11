@@ -12,10 +12,14 @@ class LikesController < ApplicationController
 	end
 
 	def create
+		@profiles = Profile.all
 		@like = @likeable.likes.new
 		@like.profile_id = current_user.profile.id
 		if @like.save!
-			redirect_to profiles_path
+		  respond_to do |format|
+		  	format.html { redirect_to profiles_path }
+	      format.js
+	    end
 		end
 	end
 
