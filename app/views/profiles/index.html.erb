@@ -32,9 +32,9 @@
             <p class="text-light-orange line-limit" title="<%= profile.about_me %>"><%= profile.about_me %></p>
             <%= link_to profile_likes_path(profile), class: "card-info-user avatar-bordered", method: :post do %>
               <% if profile.likes.count < 1 %>
-                <i class="fas fa-heart text-white"></i>
+                <i class="far fa-heart text-dark fa-2x"></i>
               <% else %>
-                <i class="fas fa-heart text-pink"></i>
+                <i class="fas fa-heart text-pink fa-2x"></i>
               <% end %>
             <% end %>
           </div>
