@@ -16,4 +16,9 @@ class Profile < ApplicationRecord
     "Male",
     "Female"
   ]
+
+  def have_profile_likes?(user_profile)
+    self.likes.where(profile: user_profile.profile).empty? ? true : false
+  end
+
 end

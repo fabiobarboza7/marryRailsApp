@@ -31,8 +31,7 @@
             <h2 class="text-orange"><%= profile.first_name %> <%= profile.last_name%></h2>
             <p class="text-light-orange line-limit" title="<%= profile.about_me %>"><%= profile.about_me %></p>
             <%= link_to profile_likes_path(profile), class: "card-info-user avatar-bordered", method: :post do %>
-              <!-- need refactoring, remove queries in views -->
-              <% if profile.likes.where(profile: current_user.profile).empty? %>
+              <% if profile.have_profile_likes?(current_user) %>
                 <i class="far fa-heart text-dark fa-2x"></i>
               <% else %>
                 <i class="fas fa-heart text-pink fa-2x"></i>
