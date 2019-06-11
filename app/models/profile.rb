@@ -21,4 +21,8 @@ class Profile < ApplicationRecord
     self.likes.where(profile: user_profile.profile).empty? ? true : false
   end
 
+  def default_photo
+    self.photo.empty? ? self.photo = "https://robohash.org/etfacereaperiam.png?size=300x300&set=set1" : self.photo
+  end
+
 end
